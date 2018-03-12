@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Lobster|Sacramento|Open+Sans|Quicksand');
 
+ /* Google maps. Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+ #map {
+     height: 50%;
+ }
+
+ /* Optional: Makes the sample page fill the window. */
+
+ html,
+ body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+ }
+
 h1 {
     font-family: 'Julius Sans One', sans-serif;
 }
@@ -15,3 +31,4 @@ h3 {
     font-family: 'Quicksand', sans-serif;
     /*font-family: 'Open Sans', sans-serif;*/
 }
+
