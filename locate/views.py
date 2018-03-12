@@ -20,6 +20,8 @@ print(lat, lng)
 def home(request):
     test = "Working!"
     content = {
-        "test": test
+        "test": test,
+        "latitude": lat,
+        "longitude":lng,
     }
     return render(request, 'home.html', content)
