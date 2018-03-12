@@ -10,6 +10,26 @@ function initMap() {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 17
     });
+
+      // Add Marker Function
+      function addMarker(props) {
+          var marker = new google.maps.Marker({
+              position: props.coords,
+              map: map,
+              //icon:props.iconImage
+          });
+
+         
+      }
+
+    // Listen for click on map.
+      google.maps.event.addListener(map, 'click', function (event) {
+          // Add marker
+          addMarker({
+              coords: event.latLng
+          });
+      });
+
     infoWindow = new google.maps.InfoWindow;
 
     // Try HTML5 geolocation.
