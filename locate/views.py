@@ -3,9 +3,14 @@ import googlemaps
 from datetime import datetime
 
 gmaps = googlemaps.Client(key='AIzaSyA7DsJI3ri1eXlyu8wyBfooWw4FZVNmafc')
-# place_result = gmaps.places('nairobi')
-# print(place_result)
-geo_result = gmaps.geocode('nairobi')
+
+"""
+place_result = gmaps.places('nairobi')
+print(place_result)
+
+sample url >> https://maps.googleapis.com/maps/api/geocode/json?address=uhuru+park&key=AIzaSyA7DsJI3ri1eXlyu8wyBfooWw4FZVNmafc
+"""
+geo_result = gmaps.geocode('uhuru park')
 print(geo_result)
 # Create your views here.
 def home(request):
