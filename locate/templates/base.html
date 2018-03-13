@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
     <title>Maps</title>
     <!-- css -->
     {% block styles %} {% bootstrap_css %}
@@ -13,9 +13,9 @@
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- pooper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/popper.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/popper.min.js"></script>
     {% bootstrap_javascript %}
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script>
         var map;
         var lat = "{{latitude}}";
@@ -29,12 +29,12 @@
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: { lat: latitude , lng: longitude },
-            zoom: 15
+            zoom: 17
         });
       }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5iOQWIMe4tpZ1fcMgDbQXg8Ni6wRxk-s&callback=initMap"></script>
-    
+
     {% comment %} <script src="{% static 'js/main.js' %}" type="text/javascript" charset="utf-8"></script> {% endcomment %}
     {% endblock %}
 </head>
