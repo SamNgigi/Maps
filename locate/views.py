@@ -47,11 +47,11 @@ def home(request):
 
 
 def search(request):
-    if 'query' in request.GET and request.GET['query']:
-        query = request.GET.get("query")
+    if 'address' in request.GET and request.GET['address']:
+        address = request.GET.get("address")
         # print(query)
-        geo_result = gmaps.geocode(query)
-        print(geo_result)
+        geo_result = gmaps.geocode(address)
+        # print(geo_result)
         latitude = geo_result[0]['geometry']['location'].get('lat')
         longitude = geo_result[0]['geometry']['location'].get('lng')
         # print(geo_result)
