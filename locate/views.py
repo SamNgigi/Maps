@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import googlemaps
-# from datetime import datetime
+from .models import Location
+import datetime as dt
 
 """
 We use python's googlemap client to make the api request. We pass in the
@@ -55,6 +56,12 @@ def search(request):
         latitude = geo_result[0]['geometry']['location'].get('lat')
         longitude = geo_result[0]['geometry']['location'].get('lng')
         # print(geo_result)
+        location = Location()
+        location.name = address
+        location.latitude = latitude
+        location.longitude = longitude
+        location.time = dt.datetime.now()
+        location.save()
         test = "Working!"
         content = {
             "test": test,
