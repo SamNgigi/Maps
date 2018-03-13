@@ -10,7 +10,7 @@ print(place_result)
 
 sample url >> https://maps.googleapis.com/maps/api/geocode/json?address=uhuru+park&key=AIzaSyA7DsJI3ri1eXlyu8wyBfooWw4FZVNmafc
 """
-geo_result = gmaps.geocode('lavington')
+geo_result = gmaps.geocode('nyayo stadium')
 geometry = geo_result[0]['geometry']
 location = geometry['location']
 lat = location.get('lat')
