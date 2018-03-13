@@ -2,6 +2,9 @@
 <div class="container text-center">
     <h1>{{test}}</h1>
     <p>{{latitude}}, {{longitude}}</p>
+    <form action="{% url 'search' %}" class="form-inline" role="search">
+      <input class="form-control mr-sm-2 mb-2" type="search" placeholder="enter location" aria-label="Search" name="query">
+    </form>
 </div>
 <div id="map"></div>
 

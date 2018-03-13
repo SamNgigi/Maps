@@ -21,42 +21,44 @@ geocoding api.
 The code below does a similar request and the url above
 """
 
-geo_result = gmaps.geocode('karura forest')
-print(geo_result)
+
 """
 We go through the response we get from the api and get the location coordinates
 What we have below is similar to;
 latitude = geo_result[0]['geometry']['location'].get('lat'),
 longitude = geo_result[0]['geometry']['location'].get('lng'),
 """
-latitude = geo_result[0]['geometry']['location'].get('lat')
-longitude = geo_result[0]['geometry']['location'].get('lng')
+
 # geometry = geo_result[0]['geometry']
 # location = geometry['location']
 # lat = location.get('lat')
 # lng = location.get('lng')
 # We print see the response we get.
-print(latitude, longitude)
+# print(latitude, longitude)
 # Create your views here.
 
 
 def home(request):
-    # We pass in the coordinates we got from our api-call.
     test = "Working!"
     content = {
         "test": test,
-        "latitude": latitude,
-        "longitude": longitude,
     }
     return render(request, 'home.html', content)
 
 
-def locate(request, mark):
-    # We pass in the coordinates we got from our api-call.
-    test = "Working!"
-    content = {
-        "test": test,
-        "latitude": latitude,
-        "longitude": longitude,
-    }
-    return render(request, 'home.html', content)
+def search(request):
+    if 'query' in request.GET and request.GET['query']:
+        query = request.GET.get("query")
+        # print(query)
+        geo_result = gmaps.geocode(query)
+        print(geo_result)
+        latitude = geo_result[0]['geometry']['location'].get('lat')
+        longitude = geo_result[0]['geometry']['location'].get('lng')
+        # print(geo_result)
+        test = "Working!"
+        content = {
+            "test": test,
+            "latitude": latitude,
+            "longitude": longitude,
+        }
+        return render(request, 'home.html', content)
