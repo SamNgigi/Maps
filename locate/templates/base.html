@@ -93,9 +93,14 @@
 
         var marker = new google.maps.Marker({
           position: latLng,
-          map:map,
+          map: map,
           title: "Location found"
         });
+
+        var infowindow = new google.maps.InfoWindow({
+          content: "Location found!"
+        });
+        infowindow.open(map, marker);
       }
     }
 
@@ -107,7 +112,7 @@
       infoWindow.open(map);
     }
   </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgSsvdERhMAueytOvDsljb1UBm1QCuUPc&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgSsvdERhMAueytOvDsljb1UBm1QCuUPc&libraries=places&callback=initMap"></script>
 
   {% comment %}
   <script src="{% static 'js/main.js' %}" type="text/javascript" charset="utf-8"></script> {% endcomment %} {% endblock %}
