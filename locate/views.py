@@ -2,7 +2,9 @@ from django.shortcuts import render
 import googlemaps
 from .models import Location
 import datetime as dt
-
+import json
+from django.core.serializers.json import DjangoJSONEncoder
+from django.core import serializers
 """
 We use python's googlemap client to make the api request. We pass in the
 apikey.
@@ -41,10 +43,18 @@ longitude = geo_result[0]['geometry']['location'].get('lng'),
 
 def home(request):
     test = "Working!"
+    spots = list(Location.objects.all())
+
+    print(spots)
+    coords = {"1": 1, "2": 2}
+    coords_json = json.dumps(coords, cls=DjangoJSONEncoder)
+    spots_json = serializers.serialize('json', spots)
     content = {
         "test": test,
+        "coords_json": coords_json,
+        "spots_json": spots_json,
     }
-    return render(request, 'home.html', content)
+    return render(request, 'home.html', content, locals)
 
 
 def search(request):
