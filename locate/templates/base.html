@@ -21,7 +21,9 @@
   // var coords = '{{coords}}';
   // var coords = JSON.parse('{{coords_json|safe}}');
   var spots = JSON.parse('{{spots_json|safe}}');
+  var loc = spots[0].fields.name
   console.log(spots);
+  console.log(loc);
     var map;
     var lat = "{{latitude}}";
     latz = parseFloat(lat)
