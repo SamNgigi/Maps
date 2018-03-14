@@ -21,6 +21,12 @@
   // var coords = '{{coords}}';
   // var coords = JSON.parse('{{coords_json|safe}}');
   var spots = JSON.parse('{{spots_json|safe}}');
+  console.log(spots.length);
+  for (var i = 0; i < spots.length; i++) {
+    console.log(parseFloat(spots[i].fields.latitude), parseFloat(spots[i].fields.longitude));
+    var lat = parseFloat(spots[i].fields.latitude)
+    var lat = parseFloat(spots[i].fields.longitude)
+  }
   var loc = spots[0].fields.name
   console.log(spots);
   console.log(loc);
