@@ -4,6 +4,10 @@ from .models import Location
 import datetime as dt
 import json
 from django.core.serializers.json import DjangoJSONEncoder
+"""
+Import the serializers to convert the query set into json that we can
+parse as javascript vars. 
+"""
 from django.core import serializers
 """
 We use python's googlemap client to make the api request. We pass in the
