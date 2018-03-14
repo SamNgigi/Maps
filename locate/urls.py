@@ -15,7 +15,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url('^$', views.home, name='home'),
-    url('^search/$', views.search, name='search'),
+    url('^test/$', views.test, name='test'),
+    url('^visualize/$', views.visualize, name='visualize'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

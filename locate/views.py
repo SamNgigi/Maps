@@ -43,21 +43,6 @@ longitude = geo_result[0]['geometry']['location'].get('lng'),
 
 def home(request):
     test = "Working!"
-    spots = list(Location.objects.all())
-
-    print(spots)
-    coords = {"1": 1, "2": 2}
-    coords_json = json.dumps(coords, cls=DjangoJSONEncoder)
-    spots_json = serializers.serialize('json', spots)
-    content = {
-        "test": test,
-        "coords_json": coords_json,
-        "spots_json": spots_json,
-    }
-    return render(request, 'home.html', content, locals)
-
-
-def search(request):
     if 'address' in request.GET and request.GET['address']:
         address = request.GET.get("address")
         # print(query)
@@ -72,10 +57,38 @@ def search(request):
         location.longitude = longitude
         location.time = dt.datetime.now()
         location.save()
-        test = "Working!"
         content = {
             "test": test,
             "latitude": latitude,
             "longitude": longitude,
         }
         return render(request, 'home.html', content)
+    else:
+        content = {
+            "test": test,
+        }
+        return render(request, 'home.html', content)
+
+
+def test(request):
+    test = 'working'
+    content = {
+        "test": test
+    }
+    return render(request, "test.html", content)
+
+
+def visualize(request):
+    test = "Working!"
+    spots = list(Location.objects.all())
+
+    print(spots)
+    coords = {"1": 1, "2": 2}
+    coords_json = json.dumps(coords, cls=DjangoJSONEncoder)
+    spots_json = serializers.serialize('json', spots)
+    content = {
+        "test": test,
+        "coords_json": coords_json,
+        "spots_json": spots_json,
+    }
+    return render(request, 'visualize.html', content, locals)
