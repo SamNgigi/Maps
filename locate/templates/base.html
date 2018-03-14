@@ -17,10 +17,15 @@
   {% bootstrap_javascript %}
 
   <script>
+  var coordinates = [];
+  // var coords = '{{coords}}';
+  // var coords = JSON.parse('{{coords_json|safe}}');
+  var spots = JSON.parse('{{spots_json|safe}}');
+  console.log(spots);
     var map;
     var lat = "{{latitude}}";
     latz = parseFloat(lat)
-    // console.log(latitude)
+    // console.log(latz)
 
     var lng = "{{longitude}}";
     longz = parseFloat(lng);
@@ -83,7 +88,7 @@
             lat: latz,
             lng: longz
           },
-          zoom: 16
+          zoom: 14
         });
         var latLng = {
           lat: latz,
